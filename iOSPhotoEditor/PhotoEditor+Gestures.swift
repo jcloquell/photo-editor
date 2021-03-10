@@ -162,7 +162,6 @@ extension PhotoEditorViewController : UIGestureRecognizerDelegate  {
      */
 
     func moveView(view: UIView, recognizer: UIPanGestureRecognizer)  {
-        
         hideToolbar(hide: true)
         deleteView.isHidden = false
         

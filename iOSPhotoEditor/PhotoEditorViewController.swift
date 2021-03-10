@@ -82,10 +82,10 @@ public final class PhotoEditorViewController: UIViewController {
         super.viewDidLoad()
         self.setImageView(image: image!)
         
-        deleteView.layer.cornerRadius = deleteView.bounds.height / 2
-        deleteView.layer.borderWidth = 2.0
-        deleteView.layer.borderColor = UIColor.white.cgColor
-        deleteView.clipsToBounds = true
+        //deleteView.layer.cornerRadius = deleteView.bounds.height / 2
+        //deleteView.layer.borderWidth = 2.0
+        //deleteView.layer.borderColor = UIColor.white.cgColor
+        //deleteView.clipsToBounds = true
         
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .bottom
@@ -127,15 +127,15 @@ public final class PhotoEditorViewController: UIViewController {
     
     func setImageView(image: UIImage) {
         imageView.image = image
-        let size = image.suitableSize(widthLimit: UIScreen.main.bounds.width)
-        imageViewHeightConstraint.constant = (size?.height)!
+       //let size = image.suitableSize(widthLimit: UIScreen.main.bounds.width)
+       //imageViewHeightConstraint.constant = (size?.height)!
     }
     
     func hideToolbar(hide: Bool) {
-        topToolbar.isHidden = hide
-        topGradient.isHidden = hide
-        bottomToolbar.isHidden = hide
-        bottomGradient.isHidden = hide
+        //topToolbar.isHidden = hide
+        //topGradient.isHidden = hide
+        //bottomToolbar.isHidden = hide
+        //bottomGradient.isHidden = hide
     }
 }
 
