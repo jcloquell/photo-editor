@@ -39,6 +39,7 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     public var image: UIImage?
     /**
@@ -101,6 +102,7 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         hideControls()
         namePickerView.delegate = self
         namePickerView.dataSource = self
+        backButton.setImage(UIImage(named: "icon_back_button"), for: .normal)
     }
     
     public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -165,6 +167,7 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         bottomToolbar.isHidden = hide
         //bottomGradient.isHidden = hide
     }
+    
 }
 
 extension PhotoEditorViewController: ColorDelegate {
