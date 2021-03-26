@@ -26,7 +26,6 @@ extension PhotoEditorViewController {
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         photoEditorDelegate?.canceledEditing()
-        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cropButtonTapped(_ sender: UIButton) {
@@ -103,7 +102,6 @@ extension PhotoEditorViewController {
     @IBAction func continueButtonPressed(_ sender: Any) {
         let img = self.canvasView.toImage()
         photoEditorDelegate?.doneEditing(image: img)
-        self.dismiss(animated: true, completion: nil)
     }
 
     //MAKR: helper methods

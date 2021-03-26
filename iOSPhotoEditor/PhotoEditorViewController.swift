@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class PhotoEditorViewController: UIViewController {
+public final class PhotoEditorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     /** holding the 2 imageViews original image and drawing & stickers */
     @IBOutlet weak var canvasView: UIView!
@@ -17,10 +17,10 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     //To hold the drawings and stickers
     @IBOutlet weak var canvasImageView: UIImageView!
-
+    
     @IBOutlet weak var topToolbar: UIView!
     @IBOutlet weak var bottomToolbar: UIView!
-
+    
     @IBOutlet weak var topGradient: UIView!
     @IBOutlet weak var bottomGradient: UIView!
     
@@ -29,6 +29,7 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var colorPickerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var namePickerView: UIPickerView!
     
     //Controls
     @IBOutlet weak var cropButton: UIButton!
@@ -71,7 +72,7 @@ public final class PhotoEditorViewController: UIViewController {
     
     
     var stickersViewController: StickersViewController!
-
+    
     //Register Custom font before we load XIB
     public override func loadView() {
         registerFont()
@@ -81,11 +82,6 @@ public final class PhotoEditorViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.setImageView(image: image!)
-        
-        //deleteView.layer.cornerRadius = deleteView.bounds.height / 2
-        //deleteView.layer.borderWidth = 2.0
-        //deleteView.layer.borderColor = UIColor.white.cgColor
-        //deleteView.clipsToBounds = true
         
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .bottom
@@ -103,6 +99,38 @@ public final class PhotoEditorViewController: UIViewController {
         configureCollectionView()
         stickersViewController = StickersViewController(nibName: "StickersViewController", bundle: Bundle(for: StickersViewController.self))
         hideControls()
+        namePickerView.delegate = self
+        namePickerView.dataSource = self
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = view as? UILabel ?? UILabel()
+        label.textColor = .black
+        label.textAlignment = .center
+        if row == 0 {
+            label.font = UIFont.systemFont(ofSize: 24.0)
+        } else {
+            label.font = UIFont(name:"Noteworthy", size:19)
+        }
+        label.text = "Jorge Cloquell"
+        namePickerView.subviews[1].backgroundColor = .clear //todo
+        return label
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //todo
+    }
+    
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 2
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "Jorge Cloquell"
     }
     
     func configureCollectionView() {
@@ -127,14 +155,14 @@ public final class PhotoEditorViewController: UIViewController {
     
     func setImageView(image: UIImage) {
         imageView.image = image
-       //let size = image.suitableSize(widthLimit: UIScreen.main.bounds.width)
-       //imageViewHeightConstraint.constant = (size?.height)!
+        //let size = image.suitableSize(widthLimit: UIScreen.main.bounds.width)
+        //imageViewHeightConstraint.constant = (size?.height)!
     }
     
     func hideToolbar(hide: Bool) {
         //topToolbar.isHidden = hide
         //topGradient.isHidden = hide
-        //bottomToolbar.isHidden = hide
+        bottomToolbar.isHidden = hide
         //bottomGradient.isHidden = hide
     }
 }
@@ -149,8 +177,3 @@ extension PhotoEditorViewController: ColorDelegate {
         }
     }
 }
-
-
-
-
-

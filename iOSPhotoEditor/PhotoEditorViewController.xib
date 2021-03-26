@@ -22,7 +22,9 @@
                 <outlet property="colorPickerView" destination="Cy8-ap-fH9" id="KJx-KY-rfM"/>
                 <outlet property="colorPickerViewBottomConstraint" destination="mok-x4-xHA" id="SKq-N5-bcn"/>
                 <outlet property="colorsCollectionView" destination="GaQ-XR-asZ" id="1rf-hU-0nn"/>
+                <outlet property="deleteView" destination="5AD-Ox-d6t" id="9Mp-jr-sa5"/>
                 <outlet property="imageView" destination="5rw-9v-ExQ" id="5lP-en-DGc"/>
+                <outlet property="namePickerView" destination="ZPr-Wd-QB3" id="8mQ-fO-5tE"/>
                 <outlet property="stickerButton" destination="PLX-iy-2Rc" id="tzt-tW-R1r"/>
                 <outlet property="textButton" destination="0wH-LJ-SyD" id="ofN-bp-ZaE"/>
                 <outlet property="view" destination="HPk-Bg-V0q" id="eF4-Ac-Nav"/>
@@ -33,14 +35,40 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-j6-suc" userLabel="Top Toolbar Stack View">
+                    <rect key="frame" x="0.0" y="44" width="414" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-1W-6aL" userLabel="Back Button">
+                            <rect key="frame" x="0.0" y="0.0" width="56" height="35"/>
+                            <inset key="contentEdgeInsets" minX="16" minY="4" maxX="16" maxY="4"/>
+                            <state key="normal" image="icon_back_button">
+                                <color key="titleColor" name="darkText"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="PYh-Xb-GaE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHx-Qx-rmI" userLabel="Next Button">
+                            <rect key="frame" x="317" y="0.0" width="97" height="35"/>
+                            <fontDescription key="fontDescription" name="HindGuntur-Medium" family="Hind Guntur" pointSize="14"/>
+                            <inset key="contentEdgeInsets" minX="16" minY="4" maxX="16" maxY="4"/>
+                            <state key="normal" title="SIGUIENTE">
+                                <color key="titleColor" name="darkText"/>
+                            </state>
+                            <connections>
+                                <action selector="continueButtonPressed:" destination="-1" eventType="touchUpInside" id="Thn-8A-piC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1Y-ZS-dct" userLabel="Canvas View">
-                    <rect key="frame" x="25" y="74" width="364" height="673"/>
+                    <rect key="frame" x="25" y="109" width="364" height="568"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5rw-9v-ExQ">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="673"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="568"/>
                         </imageView>
-                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-yR-4xc" userLabel="Overlay Image View">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="673"/>
+                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-yR-4xc" userLabel="Overlay Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="568"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -55,6 +83,9 @@
                         <constraint firstItem="5rw-9v-ExQ" firstAttribute="leading" secondItem="S1Y-ZS-dct" secondAttribute="leading" id="giA-SP-8Cc"/>
                     </constraints>
                 </view>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPr-Wd-QB3" userLabel="Name Picker View">
+                    <rect key="frame" x="25" y="677" width="364" height="100"/>
+                </pickerView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87h-1G-t5q" userLabel="Bottom Toolbar View">
                     <rect key="frame" x="0.0" y="777" width="414" height="30"/>
                     <subviews>
@@ -64,6 +95,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLX-iy-2Rc" customClass="RoundButton" customModule="Funnvy">
                                     <rect key="frame" x="0.0" y="0.0" width="172" height="30"/>
                                     <fontDescription key="fontDescription" name="HindGuntur-Medium" family="Hind Guntur" pointSize="18"/>
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
                                     <size key="titleShadowOffset" width="1" height="0.0"/>
                                     <state key="normal" title="BRAND">
                                         <color key="titleColor" name="darkText"/>
@@ -87,6 +119,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wH-LJ-SyD" customClass="RoundButton" customModule="Funnvy">
                                     <rect key="frame" x="192" y="0.0" width="172" height="30"/>
                                     <fontDescription key="fontDescription" name="HindGuntur-Medium" family="Hind Guntur" pointSize="18"/>
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
                                     <size key="titleShadowOffset" width="1" height="0.0"/>
                                     <state key="normal" title="YOU">
                                         <color key="titleColor" name="darkText"/>
@@ -119,6 +152,22 @@
                         <constraint firstItem="ZRl-89-gRO" firstAttribute="trailing" secondItem="87h-1G-t5q" secondAttribute="trailing" constant="-25" id="y1q-nd-EUc"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5AD-Ox-d6t" userLabel="Delete View">
+                    <rect key="frame" x="25" y="647" width="364" height="90"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🗑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMN-fE-VrZ" userLabel="Delete Label">
+                            <rect key="frame" x="165" y="54" width="34" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="sMN-fE-VrZ" firstAttribute="centerX" secondItem="5AD-Ox-d6t" secondAttribute="centerX" id="Gc6-c1-zsz"/>
+                        <constraint firstItem="sMN-fE-VrZ" firstAttribute="bottom" secondItem="5AD-Ox-d6t" secondAttribute="bottom" id="fJZ-Qg-97u"/>
+                    </constraints>
+                </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cy8-ap-fH9" userLabel="Color Picker">
                     <rect key="frame" x="0.0" y="846" width="414" height="50"/>
                     <subviews>
@@ -147,18 +196,29 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="ymm-th-TTo"/>
-            <color key="backgroundColor" name="contentBackground"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="87h-1G-t5q" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" id="0ft-JY-szV"/>
                 <constraint firstItem="Cy8-ap-fH9" firstAttribute="centerX" secondItem="HPk-Bg-V0q" secondAttribute="centerX" id="24Z-2f-Tyk"/>
                 <constraint firstItem="S1Y-ZS-dct" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" constant="25" id="2tC-2e-oA6"/>
+                <constraint firstItem="5AD-Ox-d6t" firstAttribute="top" secondItem="S1Y-ZS-dct" secondAttribute="bottom" constant="-30" id="3Gt-T7-ifX"/>
+                <constraint firstItem="ZPr-Wd-QB3" firstAttribute="bottom" secondItem="87h-1G-t5q" secondAttribute="top" id="4Sp-ny-R0o"/>
                 <constraint firstItem="Cy8-ap-fH9" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" id="6eK-mF-0OL"/>
-                <constraint firstItem="S1Y-ZS-dct" firstAttribute="top" secondItem="ymm-th-TTo" secondAttribute="top" constant="30" id="Zkx-Cb-LTH"/>
+                <constraint firstItem="ZPr-Wd-QB3" firstAttribute="top" secondItem="S1Y-ZS-dct" secondAttribute="bottom" id="AVN-yk-xnW"/>
+                <constraint firstItem="Tmn-j6-suc" firstAttribute="trailing" secondItem="ymm-th-TTo" secondAttribute="trailing" id="JCL-yS-UDf"/>
+                <constraint firstItem="ZPr-Wd-QB3" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" constant="25" id="MTa-CT-UyO"/>
+                <constraint firstItem="5AD-Ox-d6t" firstAttribute="trailing" secondItem="HPk-Bg-V0q" secondAttribute="trailing" constant="-25" id="NXI-yt-tsV"/>
+                <constraint firstItem="5AD-Ox-d6t" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" constant="25" id="OXa-UQ-SlJ"/>
+                <constraint firstItem="Tmn-j6-suc" firstAttribute="leading" secondItem="ymm-th-TTo" secondAttribute="leading" id="RND-3n-3tt"/>
+                <constraint firstItem="S1Y-ZS-dct" firstAttribute="top" secondItem="Tmn-j6-suc" secondAttribute="bottom" constant="30" id="Zkx-Cb-LTH"/>
+                <constraint firstItem="5AD-Ox-d6t" firstAttribute="bottom" secondItem="S1Y-ZS-dct" secondAttribute="bottom" constant="60" id="cOb-fs-KiJ"/>
                 <constraint firstAttribute="trailing" secondItem="Cy8-ap-fH9" secondAttribute="trailing" id="dlF-iN-Gjg"/>
+                <constraint firstItem="ZPr-Wd-QB3" firstAttribute="trailing" secondItem="HPk-Bg-V0q" secondAttribute="trailing" constant="-25" id="eVv-3a-6cp"/>
+                <constraint firstItem="Tmn-j6-suc" firstAttribute="top" secondItem="ymm-th-TTo" secondAttribute="top" id="jql-Eg-I1p"/>
                 <constraint firstAttribute="trailing" secondItem="S1Y-ZS-dct" secondAttribute="trailing" constant="25" id="jwU-EC-jaR"/>
                 <constraint firstAttribute="trailing" secondItem="87h-1G-t5q" secondAttribute="trailing" id="kaD-bR-ZZt"/>
                 <constraint firstAttribute="bottom" secondItem="Cy8-ap-fH9" secondAttribute="bottom" id="mok-x4-xHA"/>
-                <constraint firstItem="S1Y-ZS-dct" firstAttribute="bottom" secondItem="87h-1G-t5q" secondAttribute="top" constant="-30" id="p34-fS-KKk"/>
+                <constraint firstItem="S1Y-ZS-dct" firstAttribute="bottom" secondItem="87h-1G-t5q" secondAttribute="top" constant="-100" id="p34-fS-KKk"/>
                 <constraint firstItem="87h-1G-t5q" firstAttribute="bottom" secondItem="ymm-th-TTo" secondAttribute="bottom" constant="-55" id="vQy-F2-XSV"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
@@ -166,16 +226,14 @@
     </objects>
     <designables>
         <designable name="0wH-LJ-SyD">
-            <size key="intrinsicContentSize" width="39" height="33"/>
+            <size key="intrinsicContentSize" width="36" height="40"/>
         </designable>
         <designable name="PLX-iy-2Rc">
-            <size key="intrinsicContentSize" width="62" height="33"/>
+            <size key="intrinsicContentSize" width="57" height="40"/>
         </designable>
     </designables>
     <resources>
-        <namedColor name="contentBackground">
-            <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="icon_back_button" width="24" height="24"/>
         <namedColor name="darkText">
             <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

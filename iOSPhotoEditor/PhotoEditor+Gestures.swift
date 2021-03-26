@@ -19,6 +19,7 @@ extension PhotoEditorViewController : UIGestureRecognizerDelegate  {
      */
     @objc func panGesture(_ recognizer: UIPanGestureRecognizer) {
         if let view = recognizer.view {
+            canvasImageView.clipsToBounds = false
             if view is UIImageView {
                 //Tap only on visible parts on the image
                 if recognizer.state == .began {
@@ -212,8 +213,11 @@ extension PhotoEditorViewController : UIGestureRecognizerDelegate  {
             } else if !canvasImageView.bounds.contains(view.center) { //Snap the view back to canvasImageView
                 UIView.animate(withDuration: 0.3, animations: {
                     view.center = self.canvasImageView.center
+                }, completion: { [weak self] _ in
+                    self?.canvasImageView.clipsToBounds = true
                 })
-                
+            } else {
+                canvasImageView.clipsToBounds = true
             }
         }
     }
