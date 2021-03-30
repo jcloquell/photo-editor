@@ -46,6 +46,11 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     public var stickers: [UIImage] = []
     public var colors: [UIColor] = []
     public var hiddenControls: [Control] = []
+    let fonts: [UIFont?] = [UIFont.systemFont(ofSize: 24.0),
+                            UIFont(name:"Noteworthy", size:19),
+                            UIFont(name:"Gelasio", size:19),
+                            UIFont(name:"Courier New", size:19),
+                            UIFont(name:"Futura", size:19)]
     
     public var photoEditorDelegate: PhotoEditorDelegate?
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
@@ -103,11 +108,7 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         let label = view as? UILabel ?? UILabel()
         label.textColor = .black
         label.textAlignment = .center
-        if row == 0 {
-            label.font = UIFont.systemFont(ofSize: 24.0)
-        } else {
-            label.font = UIFont(name:"Noteworthy", size:19)
-        }
+        label.font = fonts[row]
         let text = "Jorge Cloquell"
         switch nameCapitalization {
         case .capitalized:
@@ -130,7 +131,7 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 2
+        return fonts.count
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
