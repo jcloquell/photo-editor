@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 // MARK: - Control
-public enum control {
+public enum Control {
     case crop
     case sticker
     case draw
@@ -21,11 +21,27 @@ public enum control {
 }
 
 extension PhotoEditorViewController {
-
-     //MARK: Top Toolbar
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         photoEditorDelegate?.canceledEditing()
+    }
+    
+    @IBAction func continueButtonPressed(_ sender: Any) {
+        let img = self.canvasView.toImage()
+        photoEditorDelegate?.doneEditing(image: img)
+    }
+    
+    @IBAction func nameCapitalizationButtonTapped(_ sender: Any) {
+        switch nameCapitalization {
+        case .capitalized:
+            nameCapitalization = .uppercased
+        case .uppercased:
+            nameCapitalization = .lowercased
+        case .lowercased:
+            nameCapitalization = .capitalized
+        }
+        nameCapitalizationLabel.text = nameCapitalization.rawValue
+        reloadNamePicker()
     }
 
     @IBAction func cropButtonTapped(_ sender: UIButton) {
@@ -80,8 +96,6 @@ extension PhotoEditorViewController {
         isDrawing = false
     }
     
-    //MARK: Bottom Toolbar
-    
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
         UIImageWriteToSavedPhotosAlbum(canvasView.toImage(),self, #selector(PhotoEditorViewController.image(_:withPotentialError:contextInfo:)), nil)
     }
@@ -100,13 +114,8 @@ extension PhotoEditorViewController {
             subview.removeFromSuperview()
         }
     }
-    
-    @IBAction func continueButtonPressed(_ sender: Any) {
-        let img = self.canvasView.toImage()
-        photoEditorDelegate?.doneEditing(image: img)
-    }
 
-    //MAKR: helper methods
+    //MARK: Helper methods
     
     @objc func image(_ image: UIImage, withPotentialError error: NSErrorPointer, contextInfo: UnsafeRawPointer) {
         let alert = UIAlertController(title: "Image Saved", message: "Image successfully saved to Photos library", preferredStyle: UIAlertController.Style.alert)
@@ -117,7 +126,6 @@ extension PhotoEditorViewController {
     func hideControls() {
         for control in hiddenControls {
             switch control {
-                
             case .clear:
                 clearButton.isHidden = true
             case .crop:

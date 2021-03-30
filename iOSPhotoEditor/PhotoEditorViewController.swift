@@ -8,21 +8,19 @@
 
 import UIKit
 
+public enum NameCapitalization: String {
+    case capitalized = "Aa"
+    case uppercased = "AA"
+    case lowercased = "aa"
+}
+
 public final class PhotoEditorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    /** holding the 2 imageViews original image and drawing & stickers */
     @IBOutlet weak var canvasView: UIView!
-    //To hold the image
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
-    //To hold the drawings and stickers
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var canvasImageView: UIImageView!
     
-    @IBOutlet weak var topToolbar: UIView!
     @IBOutlet weak var bottomToolbar: UIView!
-    
-    @IBOutlet weak var topGradient: UIView!
-    @IBOutlet weak var bottomGradient: UIView!
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var deleteView: UIView!
@@ -30,11 +28,11 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var colorPickerViewBottomConstraint: NSLayoutConstraint!
     
-    //Name controls
     @IBOutlet weak var nameEditionView: UIView!
     @IBOutlet weak var namePickerView: UIPickerView!
+    @IBOutlet weak var nameCapitalizationLabel: UILabel!
+    @IBOutlet weak var nameColorView: UIView!
     
-    //Controls
     @IBOutlet weak var cropButton: UIButton!
     @IBOutlet weak var stickerButton: UIButton!
     @IBOutlet weak var drawButton: UIButton!
@@ -45,22 +43,15 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     @IBOutlet weak var backButton: UIButton!
     
     public var image: UIImage?
-    /**
-     Array of Stickers -UIImage- that the user will choose from
-     */
-    public var stickers : [UIImage] = []
-    /**
-     Array of Colors that will show while drawing or typing
-     */
-    public var colors  : [UIColor] = []
+    public var stickers: [UIImage] = []
+    public var colors: [UIColor] = []
+    public var hiddenControls: [Control] = []
     
     public var photoEditorDelegate: PhotoEditorDelegate?
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     
-    // list of controls to be hidden
-    public var hiddenControls : [control] = []
-    
     var stickersVCIsVisible = false
+    var nameCapitalization: NameCapitalization = .capitalized
     var drawColor: UIColor = UIColor.black
     var textColor: UIColor = UIColor.white
     var isDrawing: Bool = false
@@ -74,10 +65,8 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
     
-    
     var stickersViewController: StickersViewController!
     
-    //Register Custom font before we load XIB
     public override func loadView() {
         registerFont()
         super.loadView()
@@ -105,6 +94,8 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         hideControls()
         namePickerView.delegate = self
         namePickerView.dataSource = self
+        nameColorView.layer.borderWidth = 1
+        nameColorView.layer.borderColor = UIColor.darkText.cgColor
         backButton.setImage(UIImage(named: "icon_back_button"), for: .normal)
     }
     
@@ -117,7 +108,15 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         } else {
             label.font = UIFont(name:"Noteworthy", size:19)
         }
-        label.text = "Jorge Cloquell"
+        let text = "Jorge Cloquell"
+        switch nameCapitalization {
+        case .capitalized:
+            label.text = text.capitalized
+        case .uppercased:
+            label.text = text.uppercased()
+        case .lowercased:
+            label.text = text.lowercased()
+        }
         namePickerView.subviews[1].backgroundColor = .clear //todo
         return label
     }
@@ -160,15 +159,14 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     
     func setImageView(image: UIImage) {
         imageView.image = image
-        //let size = image.suitableSize(widthLimit: UIScreen.main.bounds.width)
-        //imageViewHeightConstraint.constant = (size?.height)!
     }
     
     func hideToolbar(hide: Bool) {
-        //topToolbar.isHidden = hide
-        //topGradient.isHidden = hide
         bottomToolbar.isHidden = hide
-        //bottomGradient.isHidden = hide
+    }
+    
+    func reloadNamePicker() {
+        namePickerView.reloadAllComponents()
     }
     
 }
