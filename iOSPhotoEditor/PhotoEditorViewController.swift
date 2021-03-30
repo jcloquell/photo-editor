@@ -58,7 +58,7 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     var stickersVCIsVisible = false
     var nameCapitalization: NameCapitalization = .capitalized
     var drawColor: UIColor = UIColor.black
-    var textColor: UIColor = UIColor.white
+    var textColor: UIColor = .darkText
     var isDrawing: Bool = false
     var lastPoint: CGPoint!
     var swiped = false
@@ -68,9 +68,22 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     var lastTextViewFont:UIFont?
     var activeTextView: UITextView?
     var imageViewToPan: UIImageView?
-    var isTyping: Bool = false
     
     var stickersViewController: StickersViewController!
+    
+    lazy var nameLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: canvasImageView.center.y,
+                                                width: UIScreen.main.bounds.width, height: 30))
+        label.layer.shadowColor = UIColor.black.cgColor
+        label.layer.shadowOffset = CGSize(width: 1.0, height: 0.0)
+        label.layer.shadowOpacity = 0.2
+        label.layer.shadowRadius = 1.0
+        label.layer.backgroundColor = UIColor.clear.cgColor
+        label.textAlignment = .center
+        canvasImageView.addSubview(label)
+        addGestures(view: label)
+        return label
+    }()
     
     public override func loadView() {
         registerFont()
@@ -85,14 +98,6 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         edgePan.edges = .bottom
         edgePan.delegate = self
         self.view.addGestureRecognizer(edgePan)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow),
-                                               name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillChangeFrame(_:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
         
         configureCollectionView()
         stickersViewController = StickersViewController(nibName: "StickersViewController", bundle: Bundle(for: StickersViewController.self))
@@ -109,21 +114,13 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         label.textColor = .black
         label.textAlignment = .center
         label.font = fonts[row]
-        let text = "Jorge Cloquell"
-        switch nameCapitalization {
-        case .capitalized:
-            label.text = text.capitalized
-        case .uppercased:
-            label.text = text.uppercased()
-        case .lowercased:
-            label.text = text.lowercased()
-        }
+        applyNameCapitalization(to: label, text: "Jorge Cloquell")
         namePickerView.subviews[1].backgroundColor = .clear //todo
         return label
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //todo
+        updateNameLabel()
     }
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -152,7 +149,6 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         }
         colorsCollectionView.delegate = colorsCollectionViewDelegate
         colorsCollectionView.dataSource = colorsCollectionViewDelegate
-        
         colorsCollectionView.register(
             UINib(nibName: "ColorCollectionViewCell", bundle: Bundle(for: ColorCollectionViewCell.self)),
             forCellWithReuseIdentifier: "ColorCollectionViewCell")
@@ -168,6 +164,23 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     
     func reloadNamePicker() {
         namePickerView.reloadAllComponents()
+    }
+    
+    func applyNameCapitalization(to label: UILabel, text: String) {
+        switch nameCapitalization {
+        case .capitalized:
+            label.text = text.capitalized
+        case .uppercased:
+            label.text = text.uppercased()
+        case .lowercased:
+            label.text = text.lowercased()
+        }
+    }
+    
+    func updateNameLabel() {
+        nameLabel.textColor = textColor
+        nameLabel.font = fonts[namePickerView.selectedRow(inComponent: 0)]
+        applyNameCapitalization(to: nameLabel, text: "Jorge Cloquell")
     }
     
 }

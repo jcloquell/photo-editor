@@ -42,6 +42,20 @@ extension PhotoEditorViewController {
         }
         nameCapitalizationLabel.text = nameCapitalization.rawValue
         reloadNamePicker()
+        updateNameLabel()
+    }
+    
+    @IBAction func nameColorButtonTapped(_ sender: Any) {
+        switch textColor {
+        case .darkText:
+            textColor = .white
+        case .white:
+            textColor = .darkText
+        default:
+            break
+        }
+        nameColorView.backgroundColor = textColor
+        updateNameLabel()
     }
 
     @IBAction func cropButtonTapped(_ sender: UIButton) {
@@ -66,24 +80,7 @@ extension PhotoEditorViewController {
     }
 
     @IBAction func textButtonTapped(_ sender: Any) {
-        isTyping = true
-        let textView = UITextView(frame: CGRect(x: 0, y: canvasImageView.center.y,
-                                                width: UIScreen.main.bounds.width, height: 30))
-        
-        textView.textAlignment = .center
-        textView.font = UIFont(name: "Helvetica", size: 30)
-        textView.textColor = textColor
-        textView.layer.shadowColor = UIColor.black.cgColor
-        textView.layer.shadowOffset = CGSize(width: 1.0, height: 0.0)
-        textView.layer.shadowOpacity = 0.2
-        textView.layer.shadowRadius = 1.0
-        textView.layer.backgroundColor = UIColor.clear.cgColor
-        textView.autocorrectionType = .no
-        textView.isScrollEnabled = false
-        textView.delegate = self
-        self.canvasImageView.addSubview(textView)
-        addGestures(view: textView)
-        textView.becomeFirstResponder()
+        updateNameLabel()
         nameEditionView.isHidden = false
     }    
     
