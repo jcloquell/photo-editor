@@ -29,6 +29,9 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var colorPickerViewBottomConstraint: NSLayoutConstraint!
+    
+    //Name controls
+    @IBOutlet weak var nameEditionView: UIView!
     @IBOutlet weak var namePickerView: UIPickerView!
     
     //Controls

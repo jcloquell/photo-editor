@@ -38,6 +38,7 @@ extension PhotoEditorViewController {
 
     @IBAction func stickersButtonTapped(_ sender: Any) {
         addStickersViewController()
+        nameEditionView.isHidden = true
     }
 
     @IBAction func drawButtonTapped(_ sender: Any) {
@@ -67,6 +68,7 @@ extension PhotoEditorViewController {
         self.canvasImageView.addSubview(textView)
         addGestures(view: textView)
         textView.becomeFirstResponder()
+        nameEditionView.isHidden = false
     }    
     
     @IBAction func doneButtonTapped(_ sender: Any) {
