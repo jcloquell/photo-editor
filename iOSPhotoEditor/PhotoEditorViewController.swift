@@ -186,6 +186,7 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
 }
 
 extension PhotoEditorViewController: ColorDelegate {
+    
     func didSelectColor(color: UIColor) {
         if isDrawing {
             self.drawColor = color
@@ -194,4 +195,5 @@ extension PhotoEditorViewController: ColorDelegate {
             textColor = color
         }
     }
+    
 }

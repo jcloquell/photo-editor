@@ -69,6 +69,8 @@ extension PhotoEditorViewController {
     @IBAction func stickersButtonTapped(_ sender: Any) {
         addStickersViewController()
         nameEditionView.isHidden = true
+        stickerButton.isSelected = true
+        textButton.isSelected = false
     }
 
     @IBAction func drawButtonTapped(_ sender: Any) {
@@ -82,6 +84,8 @@ extension PhotoEditorViewController {
     @IBAction func textButtonTapped(_ sender: Any) {
         updateNameLabel()
         nameEditionView.isHidden = false
+        textButton.isSelected = true
+        stickerButton.isSelected = false
     }    
     
     @IBAction func doneButtonTapped(_ sender: Any) {
