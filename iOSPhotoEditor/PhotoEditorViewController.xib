@@ -189,12 +189,22 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFO-Hi-BLs" userLabel="Triangle View" customClass="TriangleView" customModule="Funnvy">
+                            <rect key="frame" x="30" y="34" width="15" height="20"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="H1Q-oz-xxy"/>
+                                <constraint firstAttribute="width" constant="15" id="kGP-yO-Ome"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="mKZ-Jq-4nK" firstAttribute="trailing" secondItem="maJ-Dd-xdg" secondAttribute="trailing" id="CAe-wB-sO9"/>
                         <constraint firstItem="mKZ-Jq-4nK" firstAttribute="top" secondItem="maJ-Dd-xdg" secondAttribute="top" id="Gjd-b0-c9D"/>
+                        <constraint firstItem="WFO-Hi-BLs" firstAttribute="bottom" secondItem="maJ-Dd-xdg" secondAttribute="bottom" id="LTx-rW-ub7"/>
                         <constraint firstItem="mKZ-Jq-4nK" firstAttribute="leading" secondItem="maJ-Dd-xdg" secondAttribute="leading" id="ZBN-P1-bvx"/>
+                        <constraint firstItem="WFO-Hi-BLs" firstAttribute="leading" secondItem="maJ-Dd-xdg" secondAttribute="leading" constant="30" id="uQ6-xi-2Zh"/>
                         <constraint firstAttribute="height" constant="54" id="w2J-ka-34f"/>
                     </constraints>
                 </view>
