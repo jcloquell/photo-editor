@@ -8,6 +8,12 @@
 
 import UIKit
 
+public enum LogoImage {
+    case first
+    case second
+    case third
+}
+
 public enum NameCapitalization: String {
     case capitalized = "Aa"
     case uppercased = "AA"
@@ -27,6 +33,11 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var colorPickerViewBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var brandLogoSelectorView: UIView!
+    @IBOutlet weak var firstLogoImageView: UIImageView!
+    @IBOutlet weak var secondLogoImageView: UIImageView!
+    @IBOutlet weak var thirdLogoImageView: UIImageView!
     
     @IBOutlet weak var nameEditionView: UIView!
     @IBOutlet weak var namePickerView: UIPickerView!
@@ -56,6 +67,7 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     
     var stickersVCIsVisible = false
+    var logoImage: LogoImage = .first
     var nameCapitalization: NameCapitalization = .capitalized
     var drawColor: UIColor = UIColor.black
     var textColor: UIColor = .darkText
@@ -71,9 +83,19 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     
     var stickersViewController: StickersViewController!
     
+    lazy var logoImageView: UIImageView = {
+        let imageView = UIImageView(image: firstLogoImageView.image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame.size = CGSize(width: 100, height: 100)
+        imageView.center = canvasImageView.center
+        canvasImageView.addSubview(imageView)
+        addGestures(view: imageView)
+        return imageView
+    }()
+    
     lazy var nameLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: canvasImageView.center.y,
-                                                width: UIScreen.main.bounds.width, height: 30))
+                                          width: UIScreen.main.bounds.width, height: 30))
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowOffset = CGSize(width: 1.0, height: 0.0)
         label.layer.shadowOpacity = 0.2
@@ -92,12 +114,12 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.setImageView(image: image!)
+        setImageView(image: image!)
         
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .bottom
         edgePan.delegate = self
-        self.view.addGestureRecognizer(edgePan)
+        view.addGestureRecognizer(edgePan)
         
         configureCollectionView()
         stickersViewController = StickersViewController(nibName: "StickersViewController", bundle: Bundle(for: StickersViewController.self))
@@ -107,6 +129,9 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         nameColorView.layer.borderWidth = 1
         nameColorView.layer.borderColor = UIColor.darkText.cgColor
         backButton.setImage(UIImage(named: "icon_back_button"), for: .normal)
+        firstLogoImageView.image = UIImage(named: "logo_splash")
+        secondLogoImageView.image = UIImage(named: "logo_funnvy_small")
+        thirdLogoImageView.image = UIImage(named: "logo")
     }
     
     public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -160,6 +185,14 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     
     func hideToolbar(hide: Bool) {
         bottomToolbar.isHidden = hide
+        if hide {
+            brandLogoSelectorView.isHidden = true
+            nameEditionView.isHidden = true
+        } else if stickerButton.isSelected {
+            brandLogoSelectorView.isHidden = false
+        } else if textButton.isSelected {
+            nameEditionView.isHidden = false
+        }
     }
     
     func reloadNamePicker() {
@@ -174,6 +207,17 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
             label.text = text.uppercased()
         case .lowercased:
             label.text = text.lowercased()
+        }
+    }
+    
+    func updateLogoImage() {
+        switch logoImage {
+        case .first:
+            logoImageView.image = firstLogoImageView.image
+        case .second:
+            logoImageView.image = secondLogoImageView.image
+        case .third:
+            logoImageView.image = thirdLogoImageView.image
         }
     }
     

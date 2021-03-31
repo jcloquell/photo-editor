@@ -67,10 +67,26 @@ extension PhotoEditorViewController {
     }
 
     @IBAction func stickersButtonTapped(_ sender: Any) {
-        addStickersViewController()
+        brandLogoSelectorView.isHidden = false
         nameEditionView.isHidden = true
         stickerButton.isSelected = true
         textButton.isSelected = false
+        updateLogoImage()
+    }
+    
+    @IBAction func firstLogoTapped(_ sender: Any) {
+        logoImage = .first
+        updateLogoImage()
+    }
+    
+    @IBAction func secondLogoTapped(_ sender: Any) {
+        logoImage = .second
+        updateLogoImage()
+    }
+    
+    @IBAction func thirdLogoTapped(_ sender: Any) {
+        logoImage = .third
+        updateLogoImage()
     }
 
     @IBAction func drawButtonTapped(_ sender: Any) {
@@ -84,6 +100,7 @@ extension PhotoEditorViewController {
     @IBAction func textButtonTapped(_ sender: Any) {
         updateNameLabel()
         nameEditionView.isHidden = false
+        brandLogoSelectorView.isHidden = true
         textButton.isSelected = true
         stickerButton.isSelected = false
     }    

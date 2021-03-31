@@ -19,19 +19,23 @@
             <connections>
                 <outlet property="backButton" destination="eT1-1W-6aL" id="MHk-U0-VSZ"/>
                 <outlet property="bottomToolbar" destination="87h-1G-t5q" id="Pzi-Dw-qOq"/>
+                <outlet property="brandLogoSelectorView" destination="maJ-Dd-xdg" id="ZZQ-bE-nv6"/>
                 <outlet property="canvasImageView" destination="n3p-yR-4xc" id="OED-1L-YMz"/>
                 <outlet property="canvasView" destination="S1Y-ZS-dct" id="p6I-kg-UUU"/>
                 <outlet property="colorPickerView" destination="Cy8-ap-fH9" id="KJx-KY-rfM"/>
                 <outlet property="colorPickerViewBottomConstraint" destination="mok-x4-xHA" id="SKq-N5-bcn"/>
                 <outlet property="colorsCollectionView" destination="GaQ-XR-asZ" id="1rf-hU-0nn"/>
                 <outlet property="deleteView" destination="5AD-Ox-d6t" id="9Mp-jr-sa5"/>
+                <outlet property="firstLogoImageView" destination="F8I-6z-y8A" id="iMP-TY-g1H"/>
                 <outlet property="imageView" destination="5rw-9v-ExQ" id="5lP-en-DGc"/>
                 <outlet property="nameCapitalizationLabel" destination="YzG-iw-b6t" id="bWJ-EW-RUr"/>
                 <outlet property="nameColorView" destination="yhi-P2-Gqa" id="feC-V0-jtZ"/>
                 <outlet property="nameEditionView" destination="tqC-bf-Sq2" id="Fd9-WB-hUv"/>
                 <outlet property="namePickerView" destination="ZPr-Wd-QB3" id="8mQ-fO-5tE"/>
+                <outlet property="secondLogoImageView" destination="C0Q-cd-1M8" id="ZFw-F2-PaB"/>
                 <outlet property="stickerButton" destination="PLX-iy-2Rc" id="tzt-tW-R1r"/>
                 <outlet property="textButton" destination="0wH-LJ-SyD" id="ofN-bp-ZaE"/>
+                <outlet property="thirdLogoImageView" destination="n8P-86-nkl" id="tx9-Ob-kob"/>
                 <outlet property="view" destination="HPk-Bg-V0q" id="eF4-Ac-Nav"/>
             </connections>
         </placeholder>
@@ -41,10 +45,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-j6-suc" userLabel="Top Toolbar Stack View">
-                    <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="43"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-1W-6aL" userLabel="Back Button">
-                            <rect key="frame" x="0.0" y="0.0" width="56" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="56" height="43"/>
                             <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
                             <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                             <state key="normal" image="icon_back_button">
@@ -55,7 +59,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHx-Qx-rmI" userLabel="Next Button">
-                            <rect key="frame" x="309" y="0.0" width="105" height="40"/>
+                            <rect key="frame" x="317" y="0.0" width="97" height="43"/>
                             <fontDescription key="fontDescription" name="HindGuntur-Medium" family="Hind Guntur" pointSize="14"/>
                             <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
                             <state key="normal" title="SIGUIENTE">
@@ -68,13 +72,13 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1Y-ZS-dct" userLabel="Canvas View">
-                    <rect key="frame" x="25" y="114" width="364" height="563"/>
+                    <rect key="frame" x="25" y="117" width="364" height="560"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5rw-9v-ExQ">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="563"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="560"/>
                         </imageView>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-yR-4xc" userLabel="Overlay Image View">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="563"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="560"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -103,6 +107,95 @@
                     <constraints>
                         <constraint firstItem="sMN-fE-VrZ" firstAttribute="centerX" secondItem="5AD-Ox-d6t" secondAttribute="centerX" id="Gc6-c1-zsz"/>
                         <constraint firstItem="sMN-fE-VrZ" firstAttribute="bottom" secondItem="5AD-Ox-d6t" secondAttribute="bottom" id="fJZ-Qg-97u"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maJ-Dd-xdg" userLabel="Brand Logo Selector View">
+                    <rect key="frame" x="25" y="711" width="364" height="54"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKZ-Jq-4nK" userLabel="Main Background View">
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kn7-2Z-pKq">
+                                    <rect key="frame" x="0.0" y="4" width="364" height="26"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybS-NR-9Td" userLabel="First Logo Control" customClass="UIControl">
+                                            <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="26"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F8I-6z-y8A" userLabel="First Logo Image View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="26"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="F8I-6z-y8A" firstAttribute="top" secondItem="ybS-NR-9Td" secondAttribute="top" id="HWg-JX-eUC"/>
+                                                <constraint firstAttribute="trailing" secondItem="F8I-6z-y8A" secondAttribute="trailing" id="SoX-jX-Bn3"/>
+                                                <constraint firstAttribute="bottom" secondItem="F8I-6z-y8A" secondAttribute="bottom" id="a0V-vM-Yt2"/>
+                                                <constraint firstItem="F8I-6z-y8A" firstAttribute="leading" secondItem="ybS-NR-9Td" secondAttribute="leading" id="qsn-IZ-HHT"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="firstLogoTapped:" destination="-1" eventType="touchUpInside" id="fWD-1F-888"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaF-6F-3SC" userLabel="Second Logo Control" customClass="UIControl">
+                                            <rect key="frame" x="121.33333333333334" y="0.0" width="121.33333333333334" height="26"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C0Q-cd-1M8" userLabel="Second Logo Image View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="26"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="C0Q-cd-1M8" secondAttribute="trailing" id="8eN-FQ-os4"/>
+                                                <constraint firstAttribute="bottom" secondItem="C0Q-cd-1M8" secondAttribute="bottom" id="XM3-zr-JzA"/>
+                                                <constraint firstItem="C0Q-cd-1M8" firstAttribute="top" secondItem="eaF-6F-3SC" secondAttribute="top" id="lPb-vm-Vj8"/>
+                                                <constraint firstItem="C0Q-cd-1M8" firstAttribute="leading" secondItem="eaF-6F-3SC" secondAttribute="leading" id="oZy-Qf-iED"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="secondLogoTapped:" destination="-1" eventType="touchUpInside" id="WCJ-1U-AWj"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnD-K9-eXP" userLabel="Third Logo Control" customClass="UIControl">
+                                            <rect key="frame" x="242.66666666666671" y="0.0" width="121.33333333333334" height="26"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n8P-86-nkl" userLabel="Third Logo Image View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="26"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="n8P-86-nkl" secondAttribute="trailing" id="2VV-cV-NnU"/>
+                                                <constraint firstItem="n8P-86-nkl" firstAttribute="top" secondItem="dnD-K9-eXP" secondAttribute="top" id="AqO-fS-jdR"/>
+                                                <constraint firstAttribute="bottom" secondItem="n8P-86-nkl" secondAttribute="bottom" id="J0w-8X-qSm"/>
+                                                <constraint firstItem="n8P-86-nkl" firstAttribute="leading" secondItem="dnD-K9-eXP" secondAttribute="leading" id="vZ2-Cf-6sd"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="thirdLogoTapped:" destination="-1" eventType="touchUpInside" id="K0s-yd-wy1"/>
+                                            </connections>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" name="brandLogoSelectorBackground"/>
+                            <constraints>
+                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="leading" secondItem="mKZ-Jq-4nK" secondAttribute="leading" id="9dl-WN-s7L"/>
+                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="trailing" secondItem="mKZ-Jq-4nK" secondAttribute="trailing" id="GTB-Me-Yvr"/>
+                                <constraint firstAttribute="height" constant="34" id="XDB-P0-zmr"/>
+                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="bottom" secondItem="mKZ-Jq-4nK" secondAttribute="bottom" constant="-4" id="epm-uV-5Hy"/>
+                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="top" secondItem="mKZ-Jq-4nK" secondAttribute="top" constant="4" id="xTZ-N2-usR"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="mKZ-Jq-4nK" firstAttribute="trailing" secondItem="maJ-Dd-xdg" secondAttribute="trailing" id="CAe-wB-sO9"/>
+                        <constraint firstItem="mKZ-Jq-4nK" firstAttribute="top" secondItem="maJ-Dd-xdg" secondAttribute="top" id="Gjd-b0-c9D"/>
+                        <constraint firstItem="mKZ-Jq-4nK" firstAttribute="leading" secondItem="maJ-Dd-xdg" secondAttribute="leading" id="ZBN-P1-bvx"/>
+                        <constraint firstAttribute="height" constant="54" id="w2J-ka-34f"/>
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqC-bf-Sq2" userLabel="Name Edition View">
@@ -267,9 +360,11 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="87h-1G-t5q" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" id="0ft-JY-szV"/>
+                <constraint firstItem="maJ-Dd-xdg" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" constant="25" id="0pI-0o-C6H"/>
                 <constraint firstItem="Cy8-ap-fH9" firstAttribute="centerX" secondItem="HPk-Bg-V0q" secondAttribute="centerX" id="24Z-2f-Tyk"/>
                 <constraint firstItem="S1Y-ZS-dct" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" constant="25" id="2tC-2e-oA6"/>
                 <constraint firstItem="5AD-Ox-d6t" firstAttribute="top" secondItem="S1Y-ZS-dct" secondAttribute="bottom" constant="-30" id="3Gt-T7-ifX"/>
+                <constraint firstItem="maJ-Dd-xdg" firstAttribute="bottom" secondItem="87h-1G-t5q" secondAttribute="top" constant="-12" id="5Pw-ad-she"/>
                 <constraint firstItem="Cy8-ap-fH9" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" id="6eK-mF-0OL"/>
                 <constraint firstItem="tqC-bf-Sq2" firstAttribute="trailing" secondItem="HPk-Bg-V0q" secondAttribute="trailing" constant="-25" id="FSr-3w-4Aq"/>
                 <constraint firstItem="Tmn-j6-suc" firstAttribute="trailing" secondItem="ymm-th-TTo" secondAttribute="trailing" id="JCL-yS-UDf"/>
@@ -277,6 +372,7 @@
                 <constraint firstItem="5AD-Ox-d6t" firstAttribute="leading" secondItem="HPk-Bg-V0q" secondAttribute="leading" constant="25" id="OXa-UQ-SlJ"/>
                 <constraint firstItem="Tmn-j6-suc" firstAttribute="leading" secondItem="ymm-th-TTo" secondAttribute="leading" id="RND-3n-3tt"/>
                 <constraint firstItem="S1Y-ZS-dct" firstAttribute="top" secondItem="Tmn-j6-suc" secondAttribute="bottom" constant="30" id="Zkx-Cb-LTH"/>
+                <constraint firstAttribute="trailing" secondItem="maJ-Dd-xdg" secondAttribute="trailing" constant="25" id="bWq-Mc-tp9"/>
                 <constraint firstItem="tqC-bf-Sq2" firstAttribute="top" secondItem="S1Y-ZS-dct" secondAttribute="bottom" id="bvm-eZ-eiM"/>
                 <constraint firstItem="5AD-Ox-d6t" firstAttribute="bottom" secondItem="S1Y-ZS-dct" secondAttribute="bottom" constant="60" id="cOb-fs-KiJ"/>
                 <constraint firstAttribute="trailing" secondItem="Cy8-ap-fH9" secondAttribute="trailing" id="dlF-iN-Gjg"/>
@@ -302,6 +398,9 @@
     </designables>
     <resources>
         <image name="icon_back_button" width="24" height="24"/>
+        <namedColor name="brandLogoSelectorBackground">
+            <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="darkText">
             <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
