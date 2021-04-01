@@ -45,10 +45,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-j6-suc" userLabel="Top Toolbar Stack View">
-                    <rect key="frame" x="0.0" y="44" width="414" height="43"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-1W-6aL" userLabel="Back Button">
-                            <rect key="frame" x="0.0" y="0.0" width="56" height="43"/>
+                            <rect key="frame" x="0.0" y="0.0" width="56" height="40"/>
                             <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
                             <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                             <state key="normal" image="icon_back_button">
@@ -59,7 +59,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHx-Qx-rmI" userLabel="Next Button">
-                            <rect key="frame" x="317" y="0.0" width="97" height="43"/>
+                            <rect key="frame" x="309" y="0.0" width="105" height="40"/>
                             <fontDescription key="fontDescription" name="HindGuntur-Medium" family="Hind Guntur" pointSize="14"/>
                             <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
                             <state key="normal" title="SIGUIENTE">
@@ -72,13 +72,13 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1Y-ZS-dct" userLabel="Canvas View">
-                    <rect key="frame" x="25" y="117" width="364" height="560"/>
+                    <rect key="frame" x="25" y="114" width="364" height="563"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5rw-9v-ExQ">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="560"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="563"/>
                         </imageView>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-yR-4xc" userLabel="Overlay Image View">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="560"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="563"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -285,6 +285,8 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLX-iy-2Rc" customClass="EditPhotoControlButton" customModule="Funnvy">
                                     <rect key="frame" x="0.0" y="0.0" width="172" height="30"/>
+                                    <fontDescription key="fontDescription" name="HindGuntur-Medium" family="Hind Guntur" pointSize="18"/>
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
                                     <size key="titleShadowOffset" width="1" height="0.0"/>
                                     <state key="normal" title="BRAND">
                                         <color key="titleColor" name="darkText"/>
@@ -307,6 +309,8 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wH-LJ-SyD" customClass="EditPhotoControlButton" customModule="Funnvy">
                                     <rect key="frame" x="192" y="0.0" width="172" height="30"/>
+                                    <fontDescription key="fontDescription" name="HindGuntur-Medium" family="Hind Guntur" pointSize="18"/>
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
                                     <size key="titleShadowOffset" width="1" height="0.0"/>
                                     <state key="normal" title="YOU">
                                         <color key="titleColor" name="darkText"/>
@@ -400,10 +404,10 @@
     </objects>
     <designables>
         <designable name="0wH-LJ-SyD">
-            <size key="intrinsicContentSize" width="37" height="34"/>
+            <size key="intrinsicContentSize" width="39" height="27"/>
         </designable>
         <designable name="PLX-iy-2Rc">
-            <size key="intrinsicContentSize" width="60" height="34"/>
+            <size key="intrinsicContentSize" width="62" height="27"/>
         </designable>
     </designables>
     <resources>
