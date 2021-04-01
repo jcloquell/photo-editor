@@ -38,6 +38,8 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     @IBOutlet weak var firstLogoImageView: UIImageView!
     @IBOutlet weak var secondLogoImageView: UIImageView!
     @IBOutlet weak var thirdLogoImageView: UIImageView!
+    @IBOutlet weak var triangleView: UIView!
+    @IBOutlet weak var triangleViewLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var nameEditionView: UIView!
     @IBOutlet weak var namePickerView: UIPickerView!
@@ -57,11 +59,11 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     public var stickers: [UIImage] = []
     public var colors: [UIColor] = []
     public var hiddenControls: [Control] = []
-    let fonts: [UIFont?] = [UIFont.systemFont(ofSize: 24.0),
-                            UIFont(name:"Noteworthy", size:19),
-                            UIFont(name:"Gelasio", size:19),
-                            UIFont(name:"Courier New", size:19),
-                            UIFont(name:"Futura", size:19)]
+    let fonts: [UIFont?] = [.systemFont(ofSize: 24.0),
+                            UIFont(name: "Noteworthy", size: 19),
+                            UIFont(name: "Gelasio", size: 19),
+                            UIFont(name: "Courier New", size: 19),
+                            UIFont(name: "Futura", size: 19)]
     
     public var photoEditorDelegate: PhotoEditorDelegate?
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
@@ -129,9 +131,9 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         nameColorView.layer.borderWidth = 1
         nameColorView.layer.borderColor = UIColor.darkText.cgColor
         backButton.setImage(UIImage(named: "icon_back_button"), for: .normal)
-        firstLogoImageView.image = UIImage(named: "logo_splash")
-        secondLogoImageView.image = UIImage(named: "logo_funnvy_small")
-        thirdLogoImageView.image = UIImage(named: "logo")
+        firstLogoImageView.image = UIImage(named: "logo_nike_first")
+        secondLogoImageView.image = UIImage(named: "logo_nike_second")
+        thirdLogoImageView.image = UIImage(named: "logo_nike_third")
     }
     
     public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -225,6 +227,10 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         nameLabel.textColor = textColor
         nameLabel.font = fonts[namePickerView.selectedRow(inComponent: 0)]
         applyNameCapitalization(to: nameLabel, text: "Jorge Cloquell")
+    }
+    
+    func updateTriangleViewPosition(forSelectedView view: UIView) {
+        triangleViewLeadingConstraint.constant = view.center.x - triangleView.frame.size.width / 2
     }
     
 }

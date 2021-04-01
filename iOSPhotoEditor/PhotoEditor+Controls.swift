@@ -72,6 +72,7 @@ extension PhotoEditorViewController {
         stickerButton.isSelected = true
         textButton.isSelected = false
         updateLogoImage()
+        updateTriangleViewPosition(forSelectedView: stickerButton)
     }
     
     @IBAction func firstLogoTapped(_ sender: Any) {

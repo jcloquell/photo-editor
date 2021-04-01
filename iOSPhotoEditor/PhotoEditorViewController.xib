@@ -36,6 +36,8 @@
                 <outlet property="stickerButton" destination="PLX-iy-2Rc" id="tzt-tW-R1r"/>
                 <outlet property="textButton" destination="0wH-LJ-SyD" id="ofN-bp-ZaE"/>
                 <outlet property="thirdLogoImageView" destination="n8P-86-nkl" id="tx9-Ob-kob"/>
+                <outlet property="triangleView" destination="WFO-Hi-BLs" id="5nI-W2-A6t"/>
+                <outlet property="triangleViewLeadingConstraint" destination="w9m-AA-h7f" id="kkJ-nA-IUK"/>
                 <outlet property="view" destination="HPk-Bg-V0q" id="eF4-Ac-Nav"/>
             </connections>
         </placeholder>
@@ -45,10 +47,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-j6-suc" userLabel="Top Toolbar Stack View">
-                    <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="43"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-1W-6aL" userLabel="Back Button">
-                            <rect key="frame" x="0.0" y="0.0" width="56" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="56" height="43"/>
                             <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
                             <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                             <state key="normal" image="icon_back_button">
@@ -59,7 +61,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHx-Qx-rmI" userLabel="Next Button">
-                            <rect key="frame" x="309" y="0.0" width="105" height="40"/>
+                            <rect key="frame" x="317" y="0.0" width="97" height="43"/>
                             <fontDescription key="fontDescription" name="HindGuntur-Medium" family="Hind Guntur" pointSize="14"/>
                             <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
                             <state key="normal" title="SIGUIENTE">
@@ -72,13 +74,13 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1Y-ZS-dct" userLabel="Canvas View">
-                    <rect key="frame" x="25" y="114" width="364" height="563"/>
+                    <rect key="frame" x="25" y="117" width="364" height="560"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5rw-9v-ExQ">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="563"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="560"/>
                         </imageView>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-yR-4xc" userLabel="Overlay Image View">
-                            <rect key="frame" x="0.0" y="0.0" width="364" height="563"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="560"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -115,14 +117,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKZ-Jq-4nK" userLabel="Main Background View">
                             <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kn7-2Z-pKq">
-                                    <rect key="frame" x="0.0" y="4" width="364" height="26"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Kn7-2Z-pKq">
+                                    <rect key="frame" x="25" y="6" width="314" height="22"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybS-NR-9Td" userLabel="First Logo Control" customClass="UIControl">
-                                            <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="26"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="94.666666666666671" height="22"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F8I-6z-y8A" userLabel="First Logo Image View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="26"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="94.666666666666671" height="22"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -137,10 +139,10 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaF-6F-3SC" userLabel="Second Logo Control" customClass="UIControl">
-                                            <rect key="frame" x="121.33333333333334" y="0.0" width="121.33333333333334" height="26"/>
+                                            <rect key="frame" x="109.66666666666666" y="0.0" width="94.666666666666657" height="22"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C0Q-cd-1M8" userLabel="Second Logo Image View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="26"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="94.666666666666671" height="22"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,10 +157,10 @@
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnD-K9-eXP" userLabel="Third Logo Control" customClass="UIControl">
-                                            <rect key="frame" x="242.66666666666671" y="0.0" width="121.33333333333334" height="26"/>
+                                            <rect key="frame" x="219.33333333333329" y="0.0" width="94.666666666666657" height="22"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n8P-86-nkl" userLabel="Third Logo Image View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="26"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="94.666666666666671" height="22"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -177,11 +179,11 @@
                             </subviews>
                             <color key="backgroundColor" name="brandLogoSelectorBackground"/>
                             <constraints>
-                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="leading" secondItem="mKZ-Jq-4nK" secondAttribute="leading" id="9dl-WN-s7L"/>
-                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="trailing" secondItem="mKZ-Jq-4nK" secondAttribute="trailing" id="GTB-Me-Yvr"/>
+                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="leading" secondItem="mKZ-Jq-4nK" secondAttribute="leading" constant="25" id="9dl-WN-s7L"/>
+                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="trailing" secondItem="mKZ-Jq-4nK" secondAttribute="trailing" constant="-25" id="GTB-Me-Yvr"/>
                                 <constraint firstAttribute="height" constant="34" id="XDB-P0-zmr"/>
-                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="bottom" secondItem="mKZ-Jq-4nK" secondAttribute="bottom" constant="-4" id="epm-uV-5Hy"/>
-                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="top" secondItem="mKZ-Jq-4nK" secondAttribute="top" constant="4" id="xTZ-N2-usR"/>
+                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="bottom" secondItem="mKZ-Jq-4nK" secondAttribute="bottom" constant="-6" id="epm-uV-5Hy"/>
+                                <constraint firstItem="Kn7-2Z-pKq" firstAttribute="top" secondItem="mKZ-Jq-4nK" secondAttribute="top" constant="6" id="xTZ-N2-usR"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -190,7 +192,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFO-Hi-BLs" userLabel="Triangle View" customClass="TriangleView" customModule="Funnvy">
-                            <rect key="frame" x="30" y="34" width="15" height="20"/>
+                            <rect key="frame" x="0.0" y="34" width="15" height="20"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="H1Q-oz-xxy"/>
@@ -204,8 +206,8 @@
                         <constraint firstItem="mKZ-Jq-4nK" firstAttribute="top" secondItem="maJ-Dd-xdg" secondAttribute="top" id="Gjd-b0-c9D"/>
                         <constraint firstItem="WFO-Hi-BLs" firstAttribute="bottom" secondItem="maJ-Dd-xdg" secondAttribute="bottom" id="LTx-rW-ub7"/>
                         <constraint firstItem="mKZ-Jq-4nK" firstAttribute="leading" secondItem="maJ-Dd-xdg" secondAttribute="leading" id="ZBN-P1-bvx"/>
-                        <constraint firstItem="WFO-Hi-BLs" firstAttribute="leading" secondItem="maJ-Dd-xdg" secondAttribute="leading" constant="30" id="uQ6-xi-2Zh"/>
                         <constraint firstAttribute="height" constant="54" id="w2J-ka-34f"/>
+                        <constraint firstItem="WFO-Hi-BLs" firstAttribute="leading" secondItem="maJ-Dd-xdg" secondAttribute="leading" id="w9m-AA-h7f"/>
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqC-bf-Sq2" userLabel="Name Edition View">
@@ -404,10 +406,10 @@
     </objects>
     <designables>
         <designable name="0wH-LJ-SyD">
-            <size key="intrinsicContentSize" width="39" height="27"/>
+            <size key="intrinsicContentSize" width="36" height="40"/>
         </designable>
         <designable name="PLX-iy-2Rc">
-            <size key="intrinsicContentSize" width="62" height="27"/>
+            <size key="intrinsicContentSize" width="57" height="40"/>
         </designable>
     </designables>
     <resources>
