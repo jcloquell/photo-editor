@@ -46,10 +46,12 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     @IBOutlet weak var nameCapitalizationLabel: UILabel!
     @IBOutlet weak var nameColorView: UIView!
     
-    @IBOutlet weak var cropButton: UIButton!
     @IBOutlet weak var stickerButton: UIButton!
-    @IBOutlet weak var drawButton: UIButton!
+    @IBOutlet weak var editionButton: UIButton!
+    @IBOutlet weak var shopButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
+    @IBOutlet weak var cropButton: UIButton!
+    @IBOutlet weak var drawButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
@@ -131,6 +133,8 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         nameColorView.layer.borderWidth = 1
         nameColorView.layer.borderColor = UIColor.darkText.cgColor
         backButton.setImage(UIImage(named: "icon_back_button"), for: .normal)
+        editionButton.setImage(UIImage(named: "icon_photo_edition"), for: .normal)
+        shopButton.setImage(UIImage(named: "icon_shopping_bag"), for: .normal)
         firstLogoImageView.image = UIImage(named: "logo_nike_first")
         secondLogoImageView.image = UIImage(named: "logo_nike_second")
         thirdLogoImageView.image = UIImage(named: "logo_nike_third")
