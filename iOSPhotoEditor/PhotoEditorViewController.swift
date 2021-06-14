@@ -135,9 +135,6 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
         backButton.setImage(UIImage(named: "icon_back_button"), for: .normal)
         editionButton.setImage(UIImage(named: "icon_photo_edition"), for: .normal)
         shopButton.setImage(UIImage(named: "icon_shopping_bag"), for: .normal)
-        firstLogoImageView.image = UIImage(named: "logo_nike_first")
-        secondLogoImageView.image = UIImage(named: "logo_nike_second")
-        thirdLogoImageView.image = UIImage(named: "logo_nike_third")
     }
     
     public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -164,6 +161,18 @@ public final class PhotoEditorViewController: UIViewController, UIPickerViewDele
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "Jorge Cloquell"
+    }
+    
+    public func setFirstLogo(pictureUrl: String) {
+        firstLogoImageView.image = pictureUrl.toUIImage()
+    }
+    
+    public func setSecondLogo(pictureUrl: String) {
+        secondLogoImageView.image = pictureUrl.toUIImage()
+    }
+    
+    public func setThirdLogo(pictureUrl: String) {
+        thirdLogoImageView.image = pictureUrl.toUIImage()
     }
     
     func configureCollectionView() {
@@ -248,6 +257,18 @@ extension PhotoEditorViewController: ColorDelegate {
             activeTextView?.textColor = color
             textColor = color
         }
+    }
+    
+}
+
+private extension String {
+    
+    func toUIImage() -> UIImage? {
+        if let url = URL(string: self),
+           let data = try? Data(contentsOf: url) {
+            return UIImage(data: data)
+        }
+        return nil
     }
     
 }
